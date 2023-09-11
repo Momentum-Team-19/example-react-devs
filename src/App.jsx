@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 function App() {
-  const devs = ['Gavin', 'Jaylan', 'Nathan', 'Chris', 'Davis']
   const [devData, setDevData] = useState([])
   console.log("we're at the top of the component")
 
