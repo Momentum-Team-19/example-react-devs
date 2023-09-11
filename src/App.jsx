@@ -17,14 +17,14 @@ function App() {
 
   console.log('About to return the html elements for the page')
   return (
-    <>
-      <h1>React Devs for Hire!</h1>
+    <main className="container mx-auto px-4">
+      <h1 className="text-3xl font-bold text-center">React Devs for Hire!</h1>
       <div>
         {devData.map((dev) => (
           <Developer devId={dev.id} name={dev.name} key={dev.id} />
         ))}
       </div>
-    </>
+    </main>
   )
 }
 
