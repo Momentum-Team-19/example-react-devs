@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Developer from './components/Developer'
+
 function App() {
   const [devData, setDevData] = useState([])
   console.log("we're at the top of the component")
@@ -19,7 +21,7 @@ function App() {
       <h1>React Devs for Hire!</h1>
       <div>
         {devData.map((dev) => (
-          <p key={dev.id}>{dev.name}</p>
+          <Developer devId={dev.id} name={dev.name} key={dev.id} />
         ))}
       </div>
     </>
