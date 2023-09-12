@@ -17,7 +17,7 @@ const DevDetail = ({ devName, gitHubName }) => {
       <ul>
         {repos &&
           repos.map((repo) => (
-            <li>
+            <li key={repo.id}>
               <a href={repo.html_url}>{repo.name}</a>
             </li>
           ))}
