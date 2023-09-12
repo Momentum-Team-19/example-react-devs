@@ -40,11 +40,15 @@ function App() {
             />
           ))
         ) : (
-          <h1>You selected {selectedDev} </h1>
+          <DevDetail />
         )}
       </div>
     </main>
   )
+}
+
+const DevDetail = () => {
+  return <h1>You selected {selectedDev} </h1>
 }
 
 export default App
