@@ -1,30 +1,47 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Developer from './components/Developer'
+import { Loading } from './components/Loading'
 
 function App() {
   const [devData, setDevData] = useState([])
-  console.log("we're at the top of the component")
+  const [loading, setLoading] = useState(true)
+  const [selectedDev, setSelectedDev] = useState('')
 
   useEffect(() => {
-    console.log('Inside useEffect here')
     // make a request to the Devs API for the data about devs to list on the page
     axios
       .get('https://node-api-devs-for-hire.glitch.me/devs')
-      .then((response) => setDevData(response.data))
+      .then((response) => {
+        setDevData(response.data)
+        setLoading(false)
+      })
   }, [])
   // useEffect(()=>{}, [])
 
-  console.log('About to return the html elements for the page')
+  if (loading) {
+    return <Loading />
+  }
+
   return (
     <main className="container mx-auto">
       <header className="my-9">
         <h1 className="text-3xl font-bold">React Devs for Hire</h1>
       </header>
-      <div className="dev-container min-h-screen flex grid grid-cols-2 gap-4 p-4 bg-slate-200">
-        {devData.map((dev) => (
-          <Developer devId={dev.id} name={dev.name} key={dev.id} />
-        ))}
+      <div className="dev-container min-h-screen grid grid-cols-2 gap-4 p-4 bg-slate-200">
+        {!selectedDev ? (
+          devData.map((dev) => (
+            <Developer
+              devId={dev.id}
+              name={dev.name}
+              key={dev.id}
+              randomThing={'Hi hi hi'}
+              setSelectedDev={setSelectedDev}
+            />
+          ))
+        ) : (
+          <h1>You selected {selectedDev} </h1>
+        )}
       </div>
     </main>
   )
