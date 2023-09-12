@@ -17,9 +17,11 @@ function App() {
 
   console.log('About to return the html elements for the page')
   return (
-    <main className="container mx-auto px-4">
-      <h1 className="text-3xl font-bold text-center">React Devs for Hire!</h1>
-      <div>
+    <main className="container mx-auto">
+      <header className="my-9">
+        <h1 className="text-3xl font-bold">React Devs for Hire</h1>
+      </header>
+      <div className="dev-container min-h-screen flex grid grid-cols-2 gap-4 p-4 bg-slate-200">
         {devData.map((dev) => (
           <Developer devId={dev.id} name={dev.name} key={dev.id} />
         ))}
