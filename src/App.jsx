@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Developer from './components/Developer'
 import { Loading } from './components/Loading'
+import DevDetail from './components/DevDetail'
 
 function App() {
   const [devData, setDevData] = useState([])
@@ -40,15 +41,11 @@ function App() {
             />
           ))
         ) : (
-          <DevDetail />
+          <DevDetail devName={selectedDev} />
         )}
       </div>
     </main>
   )
-}
-
-const DevDetail = () => {
-  return <h1>You selected {selectedDev} </h1>
 }
 
 export default App
