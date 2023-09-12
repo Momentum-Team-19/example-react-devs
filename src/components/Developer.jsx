@@ -1,4 +1,4 @@
-const Developer = ({ name, devId, setSelectedDev }) => {
+const Developer = ({ name, devId, setSelectedDev, gitHub }) => {
   // {
   //   devId: "3",
   //   name: "Amy",
@@ -7,7 +7,7 @@ const Developer = ({ name, devId, setSelectedDev }) => {
 
   const handleClick = () => {
     console.log(`You Clicked on ${name}, id ${devId}!`)
-    setSelectedDev(name)
+    setSelectedDev({ name: name, gitHubName: gitHub })
   }
 
   return (

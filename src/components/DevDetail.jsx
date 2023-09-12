@@ -1,20 +1,27 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const DevDetail = ({ devName }) => {
+const DevDetail = ({ devName, gitHubName }) => {
   const [repos, setRepos] = useState([])
+
   useEffect(() => {
     axios
-      .get('https://api.github.com/users/Davis-Patterson/repos')
+      .get(`https://api.github.com/users/${gitHubName}/repos`)
       .then((res) => setRepos(res.data))
-  })
+      .catch((err) => console.error(err))
+  }, [gitHubName])
 
   return (
     <div className="dev-detail">
       <h1>You selected {devName} </h1>
-      {repos.map((repo) => (
-        <p>{repo.name}</p>
-      ))}
+      <ul>
+        {repos &&
+          repos.map((repo) => (
+            <li>
+              <a href={repo.html_url}>{repo.name}</a>
+            </li>
+          ))}
+      </ul>
     </div>
   )
 }
