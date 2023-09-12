@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import Developer from './components/Developer'
+import DeveloperCard from './components/DeveloperCard'
 import { Loading } from './components/Loading'
 import DevDetail from './components/DevDetail'
 
@@ -32,7 +32,7 @@ function App() {
       <div className="dev-container min-h-screen grid grid-cols-2 gap-4 p-4 bg-slate-200">
         {!selectedDev.name ? (
           devData.map((dev) => (
-            <Developer
+            <DeveloperCard
               devId={dev.id}
               name={dev.name}
               gitHub={dev.gitHub}

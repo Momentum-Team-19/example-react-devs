@@ -1,4 +1,4 @@
-const Developer = ({ name, devId, setSelectedDev, gitHub }) => {
+const DeveloperCard = ({ name, devId, setSelectedDev, gitHub }) => {
   // {
   //   devId: "3",
   //   name: "Amy",
@@ -23,4 +23,4 @@ const Developer = ({ name, devId, setSelectedDev, gitHub }) => {
   )
 }
 
-export default Developer
+export default DeveloperCard
