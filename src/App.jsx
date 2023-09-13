@@ -44,6 +44,7 @@ function App() {
           <DevDetail
             devName={selectedDev.name}
             gitHubName={selectedDev.gitHubName}
+            setSelectedDev={setSelectedDev}
           />
         )}
       </div>
