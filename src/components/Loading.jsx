@@ -1,5 +1,9 @@
 export const Loading = () => {
-  return <h1>Loading....</h1>
+  return (
+    <div className="dev-container min-h-screen grid grid-cols-2 gap-4 p-4 bg-slate-200">
+      <h1 className="text-5xl">Loading....</h1>
+    </div>
+  )
 }
 
 export const FancyLoading = () => {

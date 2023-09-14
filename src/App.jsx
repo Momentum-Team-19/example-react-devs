@@ -20,34 +20,34 @@ function App() {
   }, [])
   // useEffect(()=>{}, [])
 
-  if (loading) {
-    return <Loading />
-  }
-
   return (
     <main className="container mx-auto">
       <header className="my-9">
         <h1 className="text-3xl font-bold">React Devs for Hire</h1>
       </header>
-      <div className="dev-container min-h-screen grid grid-cols-2 gap-4 p-4 bg-slate-200">
-        {!selectedDev.name ? (
-          devData.map((dev) => (
-            <DeveloperCard
-              devId={dev.id}
-              name={dev.name}
-              gitHub={dev.gitHub}
-              key={dev.id}
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="dev-container min-h-screen grid grid-cols-2 gap-4 p-4 bg-slate-200">
+          {!selectedDev.name ? (
+            devData.map((dev) => (
+              <DeveloperCard
+                devId={dev.id}
+                name={dev.name}
+                gitHub={dev.gitHub}
+                key={dev.id}
+                setSelectedDev={setSelectedDev}
+              />
+            ))
+          ) : (
+            <DevDetail
+              devName={selectedDev.name}
+              gitHubName={selectedDev.gitHubName}
               setSelectedDev={setSelectedDev}
             />
-          ))
-        ) : (
-          <DevDetail
-            devName={selectedDev.name}
-            gitHubName={selectedDev.gitHubName}
-            setSelectedDev={setSelectedDev}
-          />
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </main>
   )
 }
